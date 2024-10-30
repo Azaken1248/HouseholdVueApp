@@ -1,0 +1,101 @@
+App.vue
+│
+├── Layout/
+│   ├── Navbar.vue
+│   ├── Sidebar.vue
+│   └── Footer.vue
+│
+├── Pages/
+│   ├── Home.vue
+│   ├── Login.vue
+│   ├── Register.vue
+│   ├── Dashboard/
+│   │   ├── AdminDashboard.vue
+│   │   ├── CustomerDashboard.vue
+│   │   └── ProfessionalDashboard.vue
+│   ├── ServiceManagement.vue
+│   ├── ServiceRequest.vue
+│   ├── Search.vue
+│   └── Profile.vue
+│
+├── Components/
+│   ├── Service/
+│   │   ├── ServiceCard.vue
+│   │   ├── ServiceForm.vue
+│   │   └── ServiceList.vue
+│   ├── User/
+│   │   ├── UserCard.vue
+│   │   ├── UserForm.vue
+│   │   └── UserList.vue
+│   ├── Request/
+│   │   ├── RequestCard.vue
+│   │   ├── RequestForm.vue
+│   │   └── RequestList.vue
+│   └── Modals/
+│       ├── EditModal.vue
+│       └── DeleteModal.vue
+│
+└── Utils/
+    └── Pagination.vue
+
+
+Component Descriptions
+App.vue
+
+    The main root component, handling routing and general layout for the application.
+
+Layout Components
+
+    Navbar.vue
+        Displays navigation links based on the user’s role (Admin, Customer, Professional).
+    Sidebar.vue
+        Provides sidebar navigation for dashboard views (only visible for logged-in users).
+    Footer.vue
+        Contains footer content for the app, such as contact information or quick links.
+
+Pages
+
+    Home.vue
+        The landing page with introductory information and links to sign up or log in.
+    Login.vue
+        Contains login form fields for different user roles.
+    Register.vue
+        Registration form for new customers and service professionals, with role selection.
+    Dashboard
+        AdminDashboard.vue: Admin’s main control panel for managing users, services, and requests.
+        CustomerDashboard.vue: Customer’s dashboard to view and manage their service requests.
+        ProfessionalDashboard.vue: Professional’s dashboard to view and accept/reject service requests.
+    ServiceManagement.vue
+        Admin-only page to create, update, or delete services with a form.
+    ServiceRequest.vue
+        Form for customers to create new service requests and manage ongoing ones.
+    Search.vue
+        Search interface for services by name or location; includes filters for admin and customer views.
+    Profile.vue
+        Profile page for users to view and edit their personal information.
+
+Reusable Components
+
+    Service Components:
+        ServiceCard.vue: Displays individual service details like name, description, and price.
+        ServiceForm.vue: Form for creating or updating a service, used within ServiceManagement.vue.
+        ServiceList.vue: Lists all available services for customers to choose from.
+
+    User Components:
+        UserCard.vue: Displays user information (e.g., name, role) in a card format.
+        UserForm.vue: Form for editing user information or registration.
+        UserList.vue: Admin-only component listing all registered users for management.
+
+    Request Components:
+        RequestCard.vue: Shows details of individual service requests.
+        RequestForm.vue: Form for creating or editing a service request.
+        RequestList.vue: Lists all requests for service professionals to review.
+
+    Modals:
+        EditModal.vue: Modal for editing a service or user.
+        DeleteModal.vue: Modal to confirm deletion of a service or user.
+
+Utils
+
+    Pagination.vue
+        Adds pagination functionality for lists (e.g., services, users, requests).

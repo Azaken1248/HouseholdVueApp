@@ -1,0 +1,18 @@
+In Venv
+celery -A tasks.celery worker --loglevel=info
+
+
+In Terminal
+sudo pacman -S redis
+sudo systemctl start redis
+
+In Venv
+python app.py
+
+In Client
+npm i 
+npm run serve
+
+
+
+

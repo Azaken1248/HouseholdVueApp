@@ -1,0 +1,77 @@
+Client (Vue.js)
+
+    UI & Styling
+        Use Vue.js for the main UI framework.
+        Use Bootstrap for HTML styling (no other CSS framework allowed).
+        Implement a unified and responsive UI that works across mobile and desktop.
+        Optional: Add an “Add to desktop” feature for PWA support.
+
+    Pages and Views
+        Authentication Pages:
+            Login and registration forms for customers, service professionals, and admin with role-based access control (RBAC).
+        Admin Dashboard:
+            Page for the admin to view and manage users (customers and service professionals), approve or block accounts, and create or edit services.
+        Service Management:
+            Pages for creating, updating, and deleting services with base price.
+        Service Requests:
+            Page for customers to create and manage service requests.
+            Page for service professionals to view, accept/reject, and close service requests.
+        Search Pages:
+            Page for customers to search for services by name, location, or pin code.
+            Page for admin to search for professionals to block, unblock, or review.
+
+    Form Validation
+        Implement frontend form validation using HTML5 or JavaScript validation on all fields.
+
+    Optional Functionalities
+        Implement charts using an external library (e.g., ChartJS).
+        Provide styling and aesthetics with CSS or Bootstrap.
+        If needed, add a dummy payment portal for customers to input payment details for service requests.
+
+Server (Flask)
+
+    API Development & Authentication
+        Use Flask to create API endpoints for various functionalities, such as user registration, login, service management, and service requests.
+        Implement RBAC for users (admin, service professional, and customer) using either Flask security extensions (e.g., flask_login, flask_security) or JWT-based token authentication.
+
+    Data Storage & Caching
+        Use SQLite as the main database to store all data related to users, services, and service requests.
+        Use Redis for caching to improve API performance, with cache expiry configurations.
+
+    Admin Dashboard Management
+        Admin Operations:
+            API endpoints for viewing and managing all users, including the approval and blocking of service professionals.
+            API for creating, updating, and deleting services.
+
+    Service Requests Management
+        For Customers:
+            API endpoints to create, view, and manage their service requests.
+        For Service Professionals:
+            API endpoints to view, accept/reject, and close service requests.
+        Batch Jobs:
+            Scheduled task for daily reminders to professionals (using Redis and Celery).
+            Scheduled task for monthly activity report generation and emailing.
+            User-triggered async job to export service request data as CSV for the admin.
+
+    Backend Jobs & Reporting
+        Daily Reminder Job:
+            Schedule daily reminders for service professionals who have pending requests via Google Chat Webhooks, SMS, or email.
+        Monthly Activity Report:
+            Generate a monthly HTML (or PDF) report of service activities and email it to customers.
+        CSV Export Job:
+            Admin-triggered batch job for exporting closed service request details as a CSV file.
+
+    Performance & Validation
+        Backend Validation:
+            Implement backend validation on all API inputs.
+        API Performance:
+            Optimize API performance with Redis caching.
+
+Additional Submission Requirements
+
+    Project Report:
+        Include student details, project overview, frameworks and libraries used, ER diagram, API endpoints, and a link to the presentation video.
+    Video Presentation:
+        Record a 5-10 minute video explaining your approach, implemented features, and any extra functionalities. Upload the video to a drive and provide the link in the report.
+    Project Demo:
+        Be prepared to present the project, answer questions, and make changes during the live demo.
