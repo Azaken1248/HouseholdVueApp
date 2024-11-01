@@ -66,3 +66,43 @@ def create_service_request():
 def get_service_requests():
     requests = ServiceRequest.query.all()
     return jsonify([{"id": req.id, "user_id": req.user_id, "service_id": req.service_id, "status": req.status} for req in requests])
+
+@api.route('/users', methods=['GET'])
+@jwt_required()
+def get_users():
+    users = User.query.all()
+    users_data = [{"id": user.id, "username": user.username, "email": user.email, "role": user.role} for user in users]
+    return jsonify(users_data), 200
+@api.route('/service-requests/<int:request_id>/approve', methods=['PATCH'])
+@jwt_required()
+def approve_service_request(request_id):
+    service_request = ServiceRequest.query.get(request_id)
+    if not service_request:
+        return jsonify({"msg": "Service request not found"}), 404
+    service_request.status = 'approved'
+    db.session.commit()
+    return jsonify({"msg": "Service request approved"}), 200
+
+@api.route('/service-requests/<int:request_id>/deny', methods=['PATCH'])
+@jwt_required()
+def deny_service_request(request_id):
+    service_request = ServiceRequest.query.get(request_id)
+    if not service_request:
+        return jsonify({"msg": "Service request not found"}), 404
+    service_request.status = 'denied'
+    db.session.commit()
+    return jsonify({"msg": "Service request denied"}), 200
+@api.route('/users/<int:user_id>', methods=['PATCH'])
+@jwt_required()
+def update_user_status(user_id):
+    user = User.query.get(user_id)
+    if not user:
+        return jsonify({"msg": "User not found"}), 404
+
+    status = request.json.get('status')
+    if status not in ['approved', 'blocked']:
+        return jsonify({"msg": "Invalid status"}), 400
+
+    user.status = status
+    db.session.commit()
+    return jsonify({"msg": f"User status updated to {status}"}), 200
