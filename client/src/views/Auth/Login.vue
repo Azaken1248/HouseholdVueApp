@@ -44,14 +44,14 @@ export default {
         // Store the access token in localStorage or sessionStorage
         localStorage.setItem('access_token', response.data.access_token);
         // Redirect to a protected route or dashboard
-        router.push({ name: 'Dashboard' }); // Change 'Dashboard' to your desired route
+        router.push({ name: 'Dashboard' });
       } catch (error) {
         alert(error.response.data.msg || "Login failed");
       }
     };
 
     const goBack = () => {
-      router.back();
+      router.push("/")
     };
 
     return { role, username, password, handleLogin, goBack };

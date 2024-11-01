@@ -72,7 +72,7 @@ export default {
     };
 
     const goBack = () => {
-      router.back();
+      router.push("/")
     };
 
     return { role, username, email, password, confirmPassword, phone, handleRegistration, goBack };
