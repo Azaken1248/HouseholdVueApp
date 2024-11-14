@@ -40,7 +40,6 @@
               <th>User ID</th>
               <th>Service ID</th>
               <th>Status</th>
-              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -52,10 +51,6 @@
               <td>{{ request.user_id }}</td>
               <td>{{ request.service_id }}</td>
               <td>{{ request.status }}</td>
-              <td>
-                <button class="btn btn-warning btn-sm" @click="updateRequestStatus(request.id, 'deny')">Deny</button>
-                <button class="btn btn-success btn-sm" @click="updateRequestStatus(request.id, 'approve')">Approve</button>
-              </td>
             </tr>
           </tbody>
         </table>

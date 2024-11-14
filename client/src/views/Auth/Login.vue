@@ -1,6 +1,6 @@
 <template>
   <div class="container mt-5">
-    <h2>Login as {{ role }}</h2>
+    <h2>Login</h2>
     <form @submit.prevent="handleLogin">
       <div class="mb-3">
         <label for="username" class="form-label">Username</label>
@@ -41,10 +41,21 @@ export default {
           password: password.value,
         });
         alert("Login successful!");
-        // Store the access token in localStorage or sessionStorage
+        //console.log(response);
+
         localStorage.setItem('access_token', response.data.access_token);
-        // Redirect to a protected route or dashboard
-        router.push({ name: 'Dashboard' });
+        localStorage.setItem('id',response.data.data.username)
+
+        let role = response.data.data.role;
+        if(role === "Admin"){ 
+          router.push({ name: 'Dashboard' });
+        }else if(role === "User"){
+          router.push({name: "UserDashboard"});
+        }else if(role === "Service Professional"){
+          router.push({name: "ServiceDashboard"});
+        }else{
+          router.push({name: "UserDashboard"});
+        }
       } catch (error) {
         alert(error.response.data.msg || "Login failed");
       }

@@ -17,6 +17,11 @@ class Service(db.Model):
 
 class ServiceRequest(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
-    service_id = db.Column(db.Integer, db.ForeignKey('service.id'), nullable=False)
-    status = db.Column(db.String(20), nullable=False)  # e.g., pending, completed
+    user_id = db.Column(db.String(100), db.ForeignKey('user.id'), nullable=False)
+    service_id = db.Column(db.String(100), db.ForeignKey('service.id'), nullable=False)
+    desc = db.Column(db.String(100)) 
+    date = db.Column(db.String(100))  
+    time = db.Column(db.String(100))  
+    amount = db.Column(db.Integer)
+    status = db.Column(db.String(20))
+

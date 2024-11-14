@@ -41,7 +41,7 @@ export default {
     const route = useRoute();
     const router = useRouter();
 
-    const role = route.params.role || 'User'; // Default to 'User'
+    const role = route.params.role || 'User'; 
     
     // Reactive properties for registration form
     const username = ref('');
