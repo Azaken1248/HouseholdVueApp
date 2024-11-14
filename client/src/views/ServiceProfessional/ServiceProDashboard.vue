@@ -84,7 +84,7 @@
       const fetchAvailableServiceRequests = async () => {
         try {
           const token = localStorage.getItem('access_token');
-          const response = await axios.get('http://localhost:5000/api/service-requests/professional', {
+          const response = await axios.get('https://skibidi2.rrex.cc/api/service-requests/professional', {
             headers: { Authorization: `Bearer ${token}` }
           });
           availableServiceRequests.value = response.data;
@@ -97,7 +97,7 @@
       const fetchUserAcceptedDeniedRequests = async () => {
         try {
           const token = localStorage.getItem('access_token');
-          const response = await axios.get('http://localhost:5000/api/service-requests/professional/approved', {
+          const response = await axios.get('https://skibidi2.rrex.cc/api/service-requests/professional/approved', {
             headers: { Authorization: `Bearer ${token}` }
           });
           userAcceptedDeniedRequests.value = response.data;
@@ -110,7 +110,7 @@
       const acceptRequest = async (requestId) => {
         try {
           const token = localStorage.getItem('access_token');
-          await axios.patch(`http://localhost:5000/api/service-requests/${requestId}/approve`, {}, {
+          await axios.patch(`https://skibidi2.rrex.cc/api/service-requests/${requestId}/approve`, {}, {
             headers: { Authorization: `Bearer ${token}` }
           });
   
@@ -129,7 +129,7 @@
       const denyRequest = async (requestId) => {
         try {
           const token = localStorage.getItem('access_token');
-          await axios.patch(`http://localhost:5000/api/service-requests/${requestId}/deny`, {}, {
+          await axios.patch(`https://skibidi2.rrex.cc/api/service-requests/${requestId}/deny`, {}, {
             headers: { Authorization: `Bearer ${token}` }
           });
   

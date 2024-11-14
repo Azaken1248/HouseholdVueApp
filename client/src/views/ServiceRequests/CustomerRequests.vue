@@ -39,7 +39,7 @@ export default {
     const submitCustomRequest = async () => {
       try {
         const token = localStorage.getItem('access_token');
-        await axios.post('http://localhost:5000/api/service-requests', {
+        await axios.post('https://skibidi2.rrex.cc/api/service-requests', {
           user_id: localStorage.getItem('id'),
           service_id: Date.now(),
           type: customService.value.type,

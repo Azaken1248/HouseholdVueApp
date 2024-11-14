@@ -55,7 +55,7 @@ export default {
     const fetchUserServiceRequests = async () => {
       try {
         const token = localStorage.getItem('access_token');
-        const response = await axios.get('http://localhost:5000/api/service-requests', {
+        const response = await axios.get('https://skibidi2.rrex.cc/api/service-requests', {
           headers: { Authorization: `Bearer ${token}` }
         });
         console.log(response.data);
@@ -68,7 +68,7 @@ export default {
     const cancelServiceRequest = async (requestId) => {
   try {
     const token = localStorage.getItem('access_token');
-    await axios.patch(`http://localhost:5000/api/service-requests/${requestId}/cancel`, {}, {
+    await axios.patch(`https://skibidi2.rrex.cc/api/service-requests/${requestId}/cancel`, {}, {
       headers: { Authorization: `Bearer ${token}` }
     });
     // Update local data

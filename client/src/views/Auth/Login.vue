@@ -36,7 +36,7 @@ export default {
 
     const handleLogin = async () => {
       try {
-        const response = await axios.post('http://localhost:5000/api/login', {
+        const response = await axios.post('https://skibidi2.rrex.cc/api/login', {
           username: username.value, // Use username instead of email
           password: password.value,
         });

@@ -57,7 +57,7 @@ export default {
       }
 
       try {
-        const response = await axios.post('http://localhost:5000/api/register', {
+        const response = await axios.post('https://skibidi2.rrex.cc/api/register', {
           username: username.value,
           password: password.value,
           role: role,

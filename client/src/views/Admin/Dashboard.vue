@@ -76,7 +76,7 @@ export default {
     const fetchUsers = async () => {
       try {
         const token = localStorage.getItem('access_token');
-        const userResponse = await axios.get('http://localhost:5000/api/users', {
+        const userResponse = await axios.get('https://skibidi2.rrex.cc/api/users', {
           headers: { Authorization: `Bearer ${token}` }
         });
         users.value = userResponse.data;
@@ -89,7 +89,7 @@ export default {
     const fetchServiceRequests = async () => {
       try {
         const token = localStorage.getItem('access_token');
-        const requestResponse = await axios.get('http://localhost:5000/api/service-requests', {
+        const requestResponse = await axios.get('https://skibidi2.rrex.cc/api/service-requests', {
           headers: { Authorization: `Bearer ${token}` }
         });
         serviceRequests.value = requestResponse.data;
@@ -101,7 +101,7 @@ export default {
     const updateUserStatus = async (userId, status) => {
       try {
         const token = localStorage.getItem('access_token');
-        await axios.patch(`http://localhost:5000/api/users/${userId}`, {
+        await axios.patch(`https://skibidi2.rrex.cc/api/users/${userId}`, {
           status: status
         }, {
           headers: { Authorization: `Bearer ${token}` }
@@ -125,7 +125,7 @@ export default {
     const updateRequestStatus = async (requestId, status) => {
       try {
         const token = localStorage.getItem('access_token');
-        await axios.patch(`http://localhost:5000/api/service-requests/${requestId}`, {
+        await axios.patch(`https://skibidi2.rrex.cc/api/service-requests/${requestId}`, {
           status: status
         }, {
           headers: { Authorization: `Bearer ${token}` }
